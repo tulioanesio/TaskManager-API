@@ -15,4 +15,4 @@ Esse foi o meu primeiro contato com Back End, no qual realizei um CRUD de tarefa
 
 ## Como acessar
 
-Para acessar essa aplicação, clone o repositório na sua maquina, inicie o servidor com "node --watch server.js", ou apenas "node server.js" e inicie o prisma studio, com "npx prisma studio".  
+Para acessar essa aplicação, clone o repositório na sua maquina, inicie o servidor com "node --watch server.js", ou apenas "node server.js" no terminal, e inicie o prisma studio, com "npx prisma studio".  
