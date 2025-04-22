@@ -1,16 +1,17 @@
 import express from "express";
+import cors from 'cors'
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 app.post("/tasks", async (req, res) => {
   await prisma.task.create({
     data: {
       task: req.body.task,
-      completed: req.body.completed,
     },
   });
 
@@ -30,7 +31,6 @@ app.put("/tasks/:id", async (req, res) => {
         },
       data: {
         task: req.body.task,
-        completed: req.body.completed,
       },
     });
   

@@ -836,19 +836,16 @@ export namespace Prisma {
   export type TaskMinAggregateOutputType = {
     id: string | null
     task: string | null
-    completed: boolean | null
   }
 
   export type TaskMaxAggregateOutputType = {
     id: string | null
     task: string | null
-    completed: boolean | null
   }
 
   export type TaskCountAggregateOutputType = {
     id: number
     task: number
-    completed: number
     _all: number
   }
 
@@ -856,19 +853,16 @@ export namespace Prisma {
   export type TaskMinAggregateInputType = {
     id?: true
     task?: true
-    completed?: true
   }
 
   export type TaskMaxAggregateInputType = {
     id?: true
     task?: true
-    completed?: true
   }
 
   export type TaskCountAggregateInputType = {
     id?: true
     task?: true
-    completed?: true
     _all?: true
   }
 
@@ -947,7 +941,6 @@ export namespace Prisma {
   export type TaskGroupByOutputType = {
     id: string
     task: string
-    completed: boolean
     _count: TaskCountAggregateOutputType | null
     _min: TaskMinAggregateOutputType | null
     _max: TaskMaxAggregateOutputType | null
@@ -970,7 +963,6 @@ export namespace Prisma {
   export type TaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     task?: boolean
-    completed?: boolean
   }, ExtArgs["result"]["task"]>
 
 
@@ -978,10 +970,9 @@ export namespace Prisma {
   export type TaskSelectScalar = {
     id?: boolean
     task?: boolean
-    completed?: boolean
   }
 
-  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "task" | "completed", ExtArgs["result"]["task"]>
+  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "task", ExtArgs["result"]["task"]>
 
   export type $TaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Task"
@@ -989,7 +980,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       task: string
-      completed: boolean
     }, ExtArgs["result"]["task"]>
     composites: {}
   }
@@ -1384,7 +1374,6 @@ export namespace Prisma {
   interface TaskFieldRefs {
     readonly id: FieldRef<"Task", 'String'>
     readonly task: FieldRef<"Task", 'String'>
-    readonly completed: FieldRef<"Task", 'Boolean'>
   }
     
 
@@ -1739,8 +1728,7 @@ export namespace Prisma {
 
   export const TaskScalarFieldEnum: {
     id: 'id',
-    task: 'task',
-    completed: 'completed'
+    task: 'task'
   };
 
   export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
@@ -1782,13 +1770,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -1811,13 +1792,11 @@ export namespace Prisma {
     NOT?: TaskWhereInput | TaskWhereInput[]
     id?: StringFilter<"Task"> | string
     task?: StringFilter<"Task"> | string
-    completed?: BoolFilter<"Task"> | boolean
   }
 
   export type TaskOrderByWithRelationInput = {
     id?: SortOrder
     task?: SortOrder
-    completed?: SortOrder
   }
 
   export type TaskWhereUniqueInput = Prisma.AtLeast<{
@@ -1826,13 +1805,11 @@ export namespace Prisma {
     OR?: TaskWhereInput[]
     NOT?: TaskWhereInput | TaskWhereInput[]
     task?: StringFilter<"Task"> | string
-    completed?: BoolFilter<"Task"> | boolean
   }, "id">
 
   export type TaskOrderByWithAggregationInput = {
     id?: SortOrder
     task?: SortOrder
-    completed?: SortOrder
     _count?: TaskCountOrderByAggregateInput
     _max?: TaskMaxOrderByAggregateInput
     _min?: TaskMinOrderByAggregateInput
@@ -1844,45 +1821,37 @@ export namespace Prisma {
     NOT?: TaskScalarWhereWithAggregatesInput | TaskScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Task"> | string
     task?: StringWithAggregatesFilter<"Task"> | string
-    completed?: BoolWithAggregatesFilter<"Task"> | boolean
   }
 
   export type TaskCreateInput = {
     id?: string
     task: string
-    completed: boolean
   }
 
   export type TaskUncheckedCreateInput = {
     id?: string
     task: string
-    completed: boolean
   }
 
   export type TaskUpdateInput = {
     task?: StringFieldUpdateOperationsInput | string
-    completed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type TaskUncheckedUpdateInput = {
     task?: StringFieldUpdateOperationsInput | string
-    completed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type TaskCreateManyInput = {
     id?: string
     task: string
-    completed: boolean
   }
 
   export type TaskUpdateManyMutationInput = {
     task?: StringFieldUpdateOperationsInput | string
-    completed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type TaskUncheckedUpdateManyInput = {
     task?: StringFieldUpdateOperationsInput | string
-    completed?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -1900,27 +1869,19 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type TaskCountOrderByAggregateInput = {
     id?: SortOrder
     task?: SortOrder
-    completed?: SortOrder
   }
 
   export type TaskMaxOrderByAggregateInput = {
     id?: SortOrder
     task?: SortOrder
-    completed?: SortOrder
   }
 
   export type TaskMinOrderByAggregateInput = {
     id?: SortOrder
     task?: SortOrder
-    completed?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -1941,20 +1902,8 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -1969,11 +1918,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2002,14 +1946,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
 

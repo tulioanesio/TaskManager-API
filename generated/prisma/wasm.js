@@ -112,8 +112,7 @@ Prisma.NullTypes = {
 
 exports.Prisma.TaskScalarFieldEnum = {
   id: 'id',
-  task: 'task',
-  completed: 'completed'
+  task: 'task'
 };
 
 exports.Prisma.SortOrder = {

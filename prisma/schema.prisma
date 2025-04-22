@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -17,5 +16,4 @@ datasource db {
 model Task {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
   task    String   
-  completed Boolean
 }
