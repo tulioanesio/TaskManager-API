@@ -53,3 +53,9 @@ Follow these steps to run the API locally:
    node server.js
 ```
 The API will be available at: http://localhost:3000
+
+## Live Demo
+
+The project is deployed and available on **Vercel**:
+
+- [**Task Manager**](https://task-manager-sable-mu.vercel.app/)
