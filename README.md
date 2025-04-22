@@ -1,6 +1,6 @@
 # Task Manager API
 
-This repository contains the CRUD API for a **Task Manager** developed with **Node.js**, **Express**, **Prisma**, and **MongoDB Atlas** as the database.
+This repository contains the **backend** of the Task Manager project, a CRUD API developed with **Node.js**, **Express**, **Prisma**, and **MongoDB Atlas** as the database.
 
 ## Technologies Used
 
