@@ -40,15 +40,18 @@ Follow these steps to run the API locally:
 ```
 3. **Configure the environment variables**:
 
-   Create a `.env` file at the root of the project and add the following line:
+   Create a `.env` file at the root of the project and add the add your connection string into the application code:
+
+**GENERIC EXEMPLE**
 ```
-   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/task-manager?retryWrites=true&w=majority
+DATABASE_URL="mongodb+srv://test:test@cluster0.ns1yp.mongodb.net/myFirstDatabase"
 ```
 4. **Initialize the database with Prisma**:
 ```
-   npx prisma migrate dev
+   npx prisma studio
 ```
 5. **Start the server**:
+
 ```
    node server.js
 ```
