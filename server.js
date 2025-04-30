@@ -41,7 +41,7 @@ app.delete("/tasks/:id", async (req, res) => {
 
     await prisma.task.delete({
         where:{
-            id: req.params.id
+            id: Number(req.params.id)
         }
     })
     res.status(200).json({ message: "Task deleted sucessfully!"});
