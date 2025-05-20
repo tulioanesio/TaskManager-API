@@ -27,7 +27,7 @@ app.get("/tasks", async (req, res) => {
 app.put("/tasks/:id", async (req, res) => {
     await prisma.task.update({
         where:{
-            id: req.params.id
+            id: Number(req.params.id)
         },
       data: {
         task: req.body.task,
