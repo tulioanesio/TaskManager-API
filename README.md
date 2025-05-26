@@ -1,13 +1,14 @@
 # Task Manager API
 
-This repository contains the **backend** of the Task Manager project, a CRUD API developed with **Node.js**, **Express**, **Prisma**, and **MongoDB Atlas** as the database.
+This repository contains the **backend** of the [Task Manager](https://github.com/tulioanesio/task-manager) project, a CRUD API developed with **Node.js**, **Express**, **Prisma**, and **PostgreSQL** as the database.
 
 ## Technologies Used
 
-- **Node.js**: JavaScript runtime environment for backend.
-- **Express**: Framework for building RESTful APIs.
-- **Prisma**: ORM (Object-Relational Mapping) to interact with MongoDB.
-- **MongoDB Atlas**: Scalable and fully managed NoSQL database in the cloud.
+- **Node.js**: Ambiente de execução JavaScript no backend.
+- **Express**: Framework para criação de APIs RESTful.
+- **Prisma**: ORM para interação com o banco de dados PostgreSQL.
+- **PostgreSQL**: Relational database used to store tasks.
+- **Docker**: Containerization platform for deploying and running the application.
 
 ## Features
 
@@ -15,7 +16,6 @@ The API allows the following CRUD operations to manage tasks:
 
 - **Create Task**: Adds a new task to the list.
 - **List Tasks**: Retrieves all stored tasks.
-- **Update Task**: Modifies an existing task.
 - **Delete Task**: Removes a task from the database.
 
 ## Prerequisites
@@ -23,7 +23,7 @@ The API allows the following CRUD operations to manage tasks:
 Ensure you have the following installed:
 
 - **Node.js**: [Download and install here](https://nodejs.org/)
-- **MongoDB Atlas**: A MongoDB Atlas account from [here](https://www.mongodb.com/cloud/atlas).
+- **Docker**: [Download and install Docker](https://docs.docker.com/get-docker/)
 
 ## Installation
 
@@ -31,8 +31,7 @@ Follow these steps to run the API locally:
 
 1. **Clone the repository**:
 ```
-   git clone https://github.com/tulioanesio/task-manager.git  
-   cd task-manager-api
+   git clone https://github.com/tulioanesio/TaskManager-API 
 ```
 2. **Install the dependencies**:
 ```
@@ -44,11 +43,14 @@ Follow these steps to run the API locally:
 
 **GENERIC EXEMPLE**
 ```
-DATABASE_URL="mongodb+srv://test:test@cluster0.ns1yp.mongodb.net/myFirstDatabase"
+DATABASE_URL="postgresql://postgres:postgres@db:5432/task_manager_db?schema=public"
+POSTGRES_USER: "your_postgres_user"
+POSTGRES_PASSWORD: "your_postgres_password"
+POSTGRES_DB: "your_postgres_database"
 ```
 4. **Initialize the database with Prisma**:
 ```
-   npx prisma studio
+   npx prisma migrate dev
 ```
 5. **Start the server**:
 
@@ -56,9 +58,3 @@ DATABASE_URL="mongodb+srv://test:test@cluster0.ns1yp.mongodb.net/myFirstDatabase
    node server.js
 ```
 The API will be available at: http://localhost:3000
-
-## Live Demo
-
-The project is deployed and available on **Vercel**:
-
-- [**Task Manager**](https://task-manager-sable-mu.vercel.app/)
