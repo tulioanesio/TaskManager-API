@@ -21,6 +21,12 @@ export const registerUser = async (req, res) => {
   }
 
   try {
+    const existingUser = await prisma.user.findUnique({ where: { email: user.email } });
+
+    if (existingUser) {
+      return res.status(409).json({ message: "Email already registred." });
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(user.password, salt);
 
@@ -53,7 +59,7 @@ export const loginUser = async (req, res) => {
     const isMatch = await bcrypt.compare(userInfo.password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid password" });
+      return res.status(401).json({ message: "Incorrect password" });
     }
 
     const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1d" });
