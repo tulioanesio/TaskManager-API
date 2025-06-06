@@ -37,7 +37,11 @@ export const registerUser = async (req, res) => {
         password: hashPassword,
       },
     });
-    res.status(201).json(userDB);
+
+    const token = jwt.sign({ id: userDB.id }, JWT_SECRET, { expiresIn: "1d" });
+    
+    res.status(201).json({ token });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error!" });
