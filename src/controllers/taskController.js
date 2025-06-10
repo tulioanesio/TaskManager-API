@@ -29,10 +29,10 @@ export const putTask = async (req, res) => {
   const taskId = Number(req.params.id);
 
   const existingTask = await prisma.task.findUnique({
-    where: {id: taskId}
-  })
+    where: { id: taskId },
+  });
 
-  if(!existingTask || existingTask.userId !== req.userId){
+  if (!existingTask || existingTask.userId !== req.userId) {
     return res.status(403).json({ message: "You cannot edit this task." });
   }
 
@@ -52,10 +52,10 @@ export const deleteTask = async (req, res) => {
   const taskId = Number(req.params.id);
 
   const existingTask = await prisma.task.findUnique({
-    where: {id: taskId}
-  })
+    where: { id: taskId },
+  });
 
-  if(!existingTask || existingTask.userId !== req.userId){
+  if (!existingTask || existingTask.userId !== req.userId) {
     return res.status(403).json({ message: "You cannot delete this task." });
   }
 
@@ -67,7 +67,6 @@ export const deleteTask = async (req, res) => {
   res.status(200).json({ message: "Task deleted sucessfully!" });
 };
 
-// controllers/taskController.js ou equivalente
 export const patchTask = async (req, res) => {
   const taskId = Number(req.params.id);
   const { isDone } = req.body;
@@ -78,9 +77,7 @@ export const patchTask = async (req, res) => {
     });
 
     if (!existingTask || existingTask.userId !== req.userId) {
-      return res
-        .status(403)
-        .json({ message: "You cannot update this task." });
+      return res.status(403).json({ message: "You cannot update this task." });
     }
 
     const updatedTask = await prisma.task.update({

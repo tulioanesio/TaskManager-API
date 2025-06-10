@@ -21,7 +21,9 @@ export const registerUser = async (req, res) => {
   }
 
   try {
-    const existingUser = await prisma.user.findUnique({ where: { email: user.email } });
+    const existingUser = await prisma.user.findUnique({
+      where: { email: user.email },
+    });
 
     if (existingUser) {
       return res.status(409).json({ message: "Email already registred." });
@@ -39,9 +41,8 @@ export const registerUser = async (req, res) => {
     });
 
     const token = jwt.sign({ id: userDB.id }, JWT_SECRET, { expiresIn: "1d" });
-    
-    res.status(201).json({ token });
 
+    res.status(201).json({ token });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error!" });
