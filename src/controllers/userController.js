@@ -40,7 +40,7 @@ export const registerUser = async (req, res) => {
       },
     });
 
-    const token = jwt.sign({ id: userDB.id }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ id: userDB.id, name: userDB.name, email: userDB.email }, JWT_SECRET, { expiresIn: "1d" });
 
     res.status(201).json({ token });
   } catch (err) {
