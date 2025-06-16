@@ -40,7 +40,11 @@ export const registerUser = async (req, res) => {
       },
     });
 
-    const token = jwt.sign({ id: userDB.id, name: userDB.name, email: userDB.email }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign(
+      { id: userDB.id, name: userDB.name, email: userDB.email },
+      JWT_SECRET,
+      { expiresIn: "1d" }
+    );
 
     res.status(201).json({ token });
   } catch (err) {
@@ -67,9 +71,8 @@ export const loginUser = async (req, res) => {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1d" });
-
-    res.status(200).json(token);
+    const token = jwt.sign({ id: user.id, name: user.name, email: user.email }, JWT_SECRET, { expiresIn: "1d" });
+    res.status(200).json({ token });
   } catch (err) {
     res.status(500).json({ message: "Server error!" });
   }
